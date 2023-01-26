@@ -1,5 +1,6 @@
 #if __has_include(<MLKitTextRecognition/MLKitTextRecognition.h>)
   @import MLKitTextRecognition;
+  @import MLKitVision;
 #endif
   @interface TextDetectorManager : NSObject
   typedef void(^postRecognitionBlock)(NSArray *textBlocks);
