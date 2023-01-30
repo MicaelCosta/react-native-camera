@@ -41,39 +41,34 @@ export function App() {
       {openTextRecognition && (
         <RNCamera
           ref={cameraRef}
-          style={{height: HEIGHT}}
+          style={{height: HEIGHT, width: WIDTH}}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.torch}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
             message: 'We need your permission to use your camera phone',
           }}
-          onTextRecognized={onTextRecognized}>
-          <View style={{height: HEIGHT, width: WIDTH}} />
-        </RNCamera>
+          onTextRecognized={onTextRecognized}
+        />
       )}
 
       {openBarcode && (
         <RNCamera
           ref={cameraRef}
-          style={{height: HEIGHT}}
+          style={{height: HEIGHT, width: WIDTH}}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.torch}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
             message: 'We need your permission to use your camera phone',
           }}
-          onBarCodeRead={onBarCodeRead}>
-          <View style={{height: HEIGHT, width: WIDTH}} />
-        </RNCamera>
+          onBarCodeRead={onBarCodeRead}
+        />
       )}
 
       {openPhoto && (
         <RNCamera
           ref={cameraRef}
-          style={{height: HEIGHT}}
+          style={{height: HEIGHT, width: WIDTH}}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.torch}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
             message: 'We need your permission to use your camera phone',
@@ -82,9 +77,12 @@ export function App() {
             onPress={takePhoto}
             style={{
               backgroundColor: '#fff',
-              height: 78,
-              width: 78,
-              borderRadius: 39,
+              height: 90,
+              width: 90,
+              borderRadius: 45,
+              position: 'absolute',
+              bottom: 30,
+              alignSelf: 'center',
             }}
           />
         </RNCamera>

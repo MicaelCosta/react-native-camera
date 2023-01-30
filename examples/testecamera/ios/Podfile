@@ -29,7 +29,6 @@ target 'testecamera' do
 
   pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
     'TextDetector',
-    'FaceDetectorMLKit',
     'BarcodeDetectorMLKit'
   ]
 
