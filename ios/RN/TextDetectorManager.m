@@ -3,7 +3,6 @@
 @import MLKitVision;
 //add all imports
 @import MLKitTextRecognition;
-@import MLKitTextRecognitionCommon;
 
 @interface TextDetectorManager ()
 @property(nonatomic, strong) MLKTextRecognizer *textRecognizer;
