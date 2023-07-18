@@ -78,7 +78,8 @@
     "lint": "eslint src --max-warnings=0",
     "lint:staged": "lint-staged",
     "prettier": "prettier --write",
-    "ci:publish": "semantic-release"
+    "ci:publish": "semantic-release",
+    "update-lock": "rm yarn.lock && yarn install"
   },
   "types": "types/index.d.ts",
   "release": {
