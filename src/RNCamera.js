@@ -272,7 +272,16 @@ type PropsType = typeof View.props & {
   barCodeTypes?: Array<string>,
   googleVisionBarcodeType?: number,
   googleVisionBarcodeMode?: number,
-  whiteBalance?: number | string | {temperature: number, tint: number, redGainOffset?: number, greenGainOffset?: number, blueGainOffset?: number },
+  whiteBalance?:
+    | number
+    | string
+    | {
+        temperature: number,
+        tint: number,
+        redGainOffset?: number,
+        greenGainOffset?: number,
+        blueGainOffset?: number,
+      },
   faceDetectionLandmarks?: number,
   autoFocus?: string | boolean | number,
   autoFocusPointOfInterest?: { x: number, y: number },
@@ -393,7 +402,7 @@ export default class Camera extends React.Component<PropsType, StateType> {
     videoStabilizationMode: CameraManager.VideoStabilization || {},
   };
 
-  static propTypes = {    
+  static propTypes = {
     ViewPropTypes,
     zoom: PropTypes.number,
     useNativeZoom: PropTypes.bool,
@@ -427,11 +436,17 @@ export default class Camera extends React.Component<PropsType, StateType> {
     cameraId: PropTypes.string,
     flashMode: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     exposure: PropTypes.number,
-    whiteBalance: PropTypes.oneOfType([PropTypes.string, PropTypes.number,
-      PropTypes.shape({ temperature: PropTypes.number, tint: PropTypes.number,
+    whiteBalance: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.shape({
+        temperature: PropTypes.number,
+        tint: PropTypes.number,
         redGainOffset: PropTypes.number,
         greenGainOffset: PropTypes.number,
-        blueGainOffset: PropTypes.number })]),
+        blueGainOffset: PropTypes.number,
+      }),
+    ]),
     autoFocus: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
     autoFocusPointOfInterest: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
     permissionDialogTitle: PropTypes.string,
@@ -720,7 +735,7 @@ export default class Camera extends React.Component<PropsType, StateType> {
     }
   };
 
-  _onSubjectAreaChanged = e => {
+  _onSubjectAreaChanged = (e) => {
     if (this.props.onSubjectAreaChanged) {
       this.props.onSubjectAreaChanged(e);
     }
